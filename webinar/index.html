@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+  <link rel="icon" href="../assets/img/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png" />
+<title>The 3-Step Scholarship Strategy · Nia Knows Finance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&display=swap">
+<style>
+@font-face{font-family:"SFD";src:url(../assets/fonts/sfpro-bold.woff2) format("woff2");font-weight:700;font-display:swap}
+@font-face{font-family:"Inter";src:url(../assets/fonts/inter-normal.woff2) format("woff2");font-weight:100 900;font-display:swap}
+:root{--ink:#f6ede6;--ink2:#fffaf6;--red:#9b1b30;--red2:#a57a3c;--deep:#5c0f1f;--cream:#2b1218;--mute:rgba(43,18,24,.66);--line:rgba(43,18,24,.12)}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{overflow:hidden;background:#000;color:var(--cream);font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+#stage{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);width:min(100vw,177.78vh);height:min(56.25vw,100vh);overflow:hidden;background:var(--ink)}
+.slide{position:absolute;inset:0;overflow:hidden;container-type:size;background:var(--ink)}
+#bar{position:fixed;left:0;top:0;height:3px;background:var(--red);width:0;transition:width .3s ease;z-index:5}
+#counter{position:fixed;right:14px;bottom:12px;z-index:5;font:12px/1 Inter,system-ui;color:var(--cream);opacity:.45;letter-spacing:.06em;font-variant-numeric:tabular-nums}
+#hint{position:fixed;left:50%;bottom:12px;transform:translateX(-50%);z-index:5;font:12px/1 Inter;color:var(--cream);opacity:.4;transition:opacity .6s}
+
+/* type */
+h1,h2,h3{font-family:SFD,"SF Pro Display",-apple-system,Inter,sans-serif;font-weight:700;margin:0;letter-spacing:-.02em;line-height:1.04}
+.h1{font-size:6.2cqw}.h2{font-size:4.6cqw}.h3{font-size:3.3cqw}
+p{margin:0}
+.sub{font-size:1.9cqw;line-height:1.4;color:var(--mute);margin-top:2.6cqh;max-width:46ch}
+.eye{font:600 1.15cqw/1 Inter;letter-spacing:.18em;text-transform:uppercase;color:var(--red2);margin-bottom:3cqh}
+.r{color:var(--red2)}
+.brand{position:absolute;left:4cqw;top:5cqh;font:700 1.5cqw/1 SFD,Inter;color:var(--red2);letter-spacing:-.01em;z-index:3}
+
+/* layouts */
+.c{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8cqh 9cqw}
+.c .sub{margin-left:auto;margin-right:auto}
+.redbg{background:var(--red)} .redbg .sub{color:rgba(255,255,255,.82)} .redbg .eye{color:#fff;opacity:.8}
+.creambg{background:var(--cream);color:var(--ink)} .creambg .sub{color:rgba(14,13,13,.62)} .creambg .eye{color:var(--red)}
+.full img.bg{position:absolute;top:0;right:0;width:56%;height:100%;object-fit:cover}
+.full.rt img.bg{right:auto;left:0}
+.full::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--ink) 0%,var(--ink) 44%,rgba(14,13,13,.55) 52%,rgba(14,13,13,0) 64%)}
+.full.rt::after{background:linear-gradient(270deg,var(--ink) 0%,var(--ink) 44%,rgba(14,13,13,.55) 52%,rgba(14,13,13,0) 64%)}
+.full .tx{position:absolute;z-index:2;left:6cqw;top:50%;transform:translateY(-50%);max-width:40cqw}
+.full.rt .tx{left:auto;right:6cqw}
+.split{display:grid;grid-template-columns:1fr 1fr;height:100%}
+.split .ph{position:relative;overflow:hidden}
+.split .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 15%}
+.split .tx{display:flex;flex-direction:column;justify-content:center;padding:0 6cqw}
+.split.rev .ph{order:2}
+.ph-frame{width:100%;height:100%;object-fit:cover;object-position:50% 15%;border-radius:1.4cqw}
+.framed{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:6cqw;padding:0 7cqw}
+.framed .pic{height:72cqh;display:flex;align-items:center;justify-content:center}
+.framed .pic img{max-height:72cqh;max-width:100%;border-radius:1.2cqw;box-shadow:0 3cqh 8cqh rgba(0,0,0,.5)}
+.tilt{transform:rotate(-3deg)}
+.pol{background:#fff;padding:1.2cqw 1.2cqw 5cqh;border-radius:.4cqw;box-shadow:0 3cqh 8cqh rgba(0,0,0,.5);transform:rotate(-4deg)}
+.pol img{display:block;height:60cqh;width:auto;max-width:34cqw;object-fit:cover}
+.cluster{display:flex;gap:2cqw;justify-content:center;align-items:center;margin-top:5cqh}
+.cluster img{height:52cqh;width:auto;border-radius:1cqw;object-fit:cover;box-shadow:0 2cqh 6cqh rgba(0,0,0,.5)}
+.cluster img:nth-child(2){transform:translateY(-3cqh)}
+.cluster img:nth-child(odd){transform:rotate(-2deg)}
+
+/* nodes */
+.nodes{display:flex;align-items:flex-start;justify-content:center;gap:0;margin-top:9cqh;position:relative;width:100%}
+.node{flex:1;display:flex;flex-direction:column;align-items:center;position:relative;padding:0 1.2cqw}
+.node .dot{width:7.4cqw;height:7.4cqw;border-radius:50%;background:var(--ink2);border:.25cqw solid var(--red);display:grid;place-items:center;font:700 2.6cqw SFD;color:var(--cream);position:relative;z-index:2}
+.node:not(:last-child)::after{content:"";position:absolute;top:3.7cqw;left:50%;width:100%;height:.25cqw;background:linear-gradient(90deg,var(--red),rgba(70,2,33,.25));z-index:1}
+.node b{display:block;font:700 1.9cqw/1.2 SFD;margin-top:3cqh}
+.node span{display:block;font-size:1.35cqw;line-height:1.4;color:var(--mute);margin-top:1.2cqh;max-width:22ch}
+.creambg .node .dot{background:#fff;color:var(--ink)} .creambg .node span{color:rgba(14,13,13,.6)}
+
+/* cards */
+.grid{display:grid;gap:1.6cqw;margin-top:7cqh;width:100%}
+.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--ink2);border:1px solid var(--line);border-radius:1.2cqw;padding:3.4cqh 1.8cqw;text-align:left}
+.card .n{font:700 1.2cqw SFD;color:var(--red2);letter-spacing:.1em}
+.card b{display:block;font:700 1.9cqw/1.2 SFD;margin-top:1.4cqh}
+.card span{display:block;font-size:1.3cqw;line-height:1.45;color:var(--mute);margin-top:1cqh}
+.creambg .card{background:#fff;border-color:rgba(14,13,13,.08)} .creambg .card span{color:rgba(14,13,13,.6)}
+
+/* myth */
+.myth{display:grid;grid-template-columns:1fr 1fr;height:100%}
+.myth>div{display:flex;flex-direction:column;justify-content:center;padding:0 6cqw}
+.myth .m{background:var(--ink2)} .myth .m h2{color:rgba(245,239,233,.45);text-decoration:line-through;text-decoration-color:var(--red);text-decoration-thickness:.35cqw}
+.myth .t{background:var(--red)}
+.myth .lab{font:600 1.2cqw Inter;letter-spacing:.2em;text-transform:uppercase;margin-bottom:3cqh;opacity:.75}
+
+/* compare */
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:2cqw;margin-top:6cqh;width:100%}
+.cmp .col{border-radius:1.2cqw;padding:3.6cqh 2.4cqw;text-align:left}
+.cmp .a{background:var(--ink2);border:1px solid var(--line)} .cmp .a h3{color:rgba(245,239,233,.5)}
+.cmp .b{background:var(--red)}
+.cmp ul{list-style:none;margin:2.6cqh 0 0;padding:0}
+.cmp li{font-size:1.65cqw;line-height:1.35;padding:1.5cqh 0;border-top:1px solid rgba(255,255,255,.14)}
+.cmp .a li{color:var(--mute)}
+
+/* quote */
+.q{position:absolute;inset:0;display:grid;grid-template-columns:38cqw 1fr;align-items:center}
+.q .ph{height:100%;position:relative}.q .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 15%}
+.q .tx{padding:0 7cqw}
+.q blockquote{margin:0;font:700 3.4cqw/1.18 SFD;letter-spacing:-.015em}
+.q cite{display:block;margin-top:4cqh;font:600 1.3cqw Inter;font-style:normal;letter-spacing:.14em;text-transform:uppercase;color:var(--red2)}
+.stars{color:var(--red2);font-size:1.8cqw;letter-spacing:.3em;margin-bottom:3cqh}
+
+/* chat prompt */
+.chat{display:inline-flex;align-items:center;gap:1.2cqw;background:#fff;color:var(--ink);border-radius:5cqw;padding:2cqh 2.4cqw 2cqh 1.4cqw;margin-top:6cqh;box-shadow:0 2cqh 6cqh rgba(0,0,0,.35)}
+.chat i{width:3.6cqw;height:3.6cqw;border-radius:50%;background:var(--red);display:grid;place-items:center;color:#fff;font:700 1.4cqw SFD;font-style:normal}
+.chat b{font:700 2.4cqw SFD}
+.caret{display:inline-block;width:.18cqw;height:2.6cqw;background:var(--red);margin-left:.4cqw;animation:blink 1s steps(1) infinite;vertical-align:middle}
+@keyframes blink{50%{opacity:0}}
+
+/* quiz */
+.quiz{display:flex;gap:2cqw;margin-top:7cqh}
+.quiz div{width:22cqw;padding:3.6cqh 0;border-radius:1.2cqw;border:.2cqw solid var(--line);font:700 2.8cqw SFD;transition:all .5s}
+.quiz .on{background:var(--red);border-color:var(--red)}
+.quiz .off{opacity:.3}
+.reveal{opacity:0;transform:translateY(2cqh);transition:all .6s;margin-top:5cqh}
+.reveal.in{opacity:1;transform:none}
+
+/* stack */
+.stack{width:100%;margin-top:5cqh;display:flex;flex-direction:column;gap:1.2cqh}
+.stack .row{display:flex;align-items:center;justify-content:space-between;background:var(--ink2);border:1px solid var(--line);border-radius:1cqw;padding:2.1cqh 2.2cqw;font:700 1.8cqw SFD;text-align:left}
+.stack .row em{font:500 1.25cqw Inter;font-style:normal;color:var(--mute)}
+.stack .row.bn{border-color:rgba(168,194,86,.6)}
+.stack .row.bn em{color:var(--red2)}
+.btn{display:inline-block;margin-top:6cqh;background:var(--red);color:#fff;font:700 2.2cqw SFD;padding:2.8cqh 4cqw;border-radius:5cqw;box-shadow:0 2cqh 6cqh rgba(70,2,33,.4)}
+.pill{display:inline-block;border:1px solid var(--line);border-radius:4cqw;padding:1.4cqh 2cqw;font-size:1.4cqw;color:var(--mute);margin-top:3cqh}
+
+/* animations on mount */
+.a1,.a2,.a3,.a4,.a5{opacity:0;transform:translateY(2.4cqh);animation:up .7s cubic-bezier(.2,.7,.2,1) forwards}
+.a2{animation-delay:.18s}.a3{animation-delay:.36s}.a4{animation-delay:.54s}.a5{animation-delay:.72s}
+@keyframes up{to{opacity:1;transform:none}}
+.zoom img.bg{animation:kb 9s ease-out forwards}
+@keyframes kb{from{transform:scale(1.08)}to{transform:scale(1)}}
+html.reduced .a1,html.reduced .a2,html.reduced .a3,html.reduced .a4,html.reduced .a5{animation:none;opacity:1;transform:none}
+html.reduced .zoom img.bg{animation:none}
+
+/* demos */
+.meter{width:70cqw;margin-top:8cqh;position:relative}
+.meter .track{height:2.2cqh;border-radius:2cqh;background:linear-gradient(90deg,#3a3434,var(--red))}
+.meter .lbls{display:flex;justify-content:space-between;margin-top:2.4cqh;font:600 1.5cqw Inter;color:var(--mute)}
+.meter .needle{position:absolute;top:-2.4cqh;left:0;width:.5cqw;height:7cqh;background:var(--cream);border-radius:1cqw;transition:left 1.8s cubic-bezier(.3,.8,.2,1)}
+.meter .tag{position:absolute;top:-9cqh;transform:translateX(-50%);font:700 1.6cqw SFD;background:var(--cream);color:var(--ink);padding:1cqh 1.2cqw;border-radius:.6cqw;white-space:nowrap;transition:left 1.8s cubic-bezier(.3,.8,.2,1)}
+.kill{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4cqw;margin-top:6cqh;width:100%}
+.kill div{background:var(--ink2);border:1px solid var(--line);border-radius:1cqw;padding:3cqh 1.4cqw;text-align:left;opacity:.15;transition:all .45s}
+.kill div.on{opacity:1;border-color:rgba(168,194,86,.55)}
+.kill div.big{background:var(--red);border-color:var(--red)}
+.kill i{font:700 1.2cqw SFD;color:var(--red2);font-style:normal;letter-spacing:.1em}
+.kill div.big i{color:#fff}
+.kill b{display:block;font:700 1.75cqw/1.2 SFD;margin-top:1.2cqh}
+.tri{width:84cqh;height:62cqh;margin-top:4cqh;overflow:visible}
+.tri line{stroke:var(--red);stroke-width:3;stroke-dasharray:400;stroke-dashoffset:400;transition:stroke-dashoffset 1s ease}
+.tri.go line{stroke-dashoffset:0}
+.tri circle{fill:var(--ink2);stroke:var(--red);stroke-width:3}
+.tri text{fill:var(--cream);font:700 18px SFD,Inter;text-anchor:middle}
+.tri .ctr{fill:var(--red2);font-size:13px;opacity:0;transition:opacity .6s 1.2s}
+.tri.go .ctr{opacity:1}
+.thermo{width:76cqw;margin-top:9cqh;position:relative}
+.thermo .tube{height:3cqh;border-radius:3cqh;background:#2a2525;overflow:hidden}
+.thermo .fill{height:100%;width:0;background:linear-gradient(90deg,#e8cfd6,var(--red));transition:width 3.2s cubic-bezier(.4,.1,.3,1)}
+.thermo .steps{display:flex;justify-content:space-between;margin-top:3cqh}
+.thermo .steps span{font:700 1.6cqw SFD;opacity:.25;transition:opacity .4s;width:20%;text-align:center}
+.thermo .steps span.on{opacity:1}
+.big{font:700 22cqh/1 SFD;color:var(--red2);letter-spacing:-.04em}
+.pp{display:flex;gap:4cqw;align-items:center;margin-top:7cqh}
+.pp div{width:20cqw;padding:4cqh 0;border-radius:1.2cqw;font:700 2.6cqw SFD;background:var(--ink2);border:1px solid var(--line)}
+.pp .pull{animation:pull 2.4s ease-in-out infinite}
+.pp .push{animation:push 2.4s ease-in-out infinite;background:var(--red);border-color:var(--red)}
+@keyframes pull{50%{transform:translateX(3cqw)}}
+@keyframes push{50%{transform:translateX(-3cqw)}}
+html.reduced .pp div{animation:none}
+.cover{height:66cqh;border-radius:1cqw;box-shadow:0 3cqh 8cqh rgba(0,0,0,.55);transform:rotate(-4deg)}
+.shots{display:flex;gap:2.4cqw;justify-content:center;margin-top:5cqh}
+.shots img{height:58cqh;border-radius:1.2cqw;box-shadow:0 3cqh 8cqh rgba(0,0,0,.5)}
+.shots img:nth-child(1){transform:rotate(-3deg)}.shots img:nth-child(3){transform:rotate(3deg)}
+.faq .q2{font:700 4.4cqw/1.12 SFD;max-width:20ch}
+.faq .tag{font:600 1.2cqw Inter;letter-spacing:.2em;text-transform:uppercase;color:var(--red2);margin-bottom:4cqh}
+
+/* Nia's own colours (her stan store and thumbnails): white, black, sunshine yellow, orange. One solid tone, plain photos, no fades. */
+:root{--ink:#fffdf6;--ink2:#f4f0e3;--red:#111111;--red2:#d9730d;--deep:#000;--cream:#111111;--mute:rgba(17,17,17,.66);--line:rgba(17,17,17,.13)}
+body{background:#fffdf6}
+#bar{background:#f0952b} #counter,#hint{color:#111}
+h1,h2,h3,.node b,.card b,.q blockquote,.stack .row,.faq .q2,.big,.chat b,.btn,.quiz div{font-family:Montserrat,SFD,Inter,sans-serif;font-weight:800}
+.r{background:#ffe94a;color:#111;padding:0 .14em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.brand{color:#111}
+.redbg,.myth .t,.cmp .b,.quiz .on{background:#111;color:#fff}
+.redbg .eye{color:#ffe94a;opacity:1} .redbg .sub,.myth .t .lab{color:rgba(255,255,255,.78)} .cmp .b li{border-top-color:rgba(255,255,255,.16)}
+.redbg .brand{color:#ffe94a}
+.creambg{background:#ffe94a;color:#111} .creambg .sub{color:rgba(17,17,17,.72)} .creambg .eye,.faq .tag{color:#111}
+.chat{color:#111} .chat i{background:#ffe94a;color:#111} .caret{background:#f0952b}
+.creambg .chat{background:#111;color:#fff}
+.btn{background:#f0952b;color:#111;box-shadow:none}
+.full::after,.full.rt::after{display:none}
+.full img.bg{width:50%;mask-image:none;-webkit-mask-image:none}
+.full .tx{max-width:38cqw}
+.split .ph{border-radius:0;box-shadow:none}
+.q .ph{border-radius:0;box-shadow:none}
+.myth .m{background:var(--ink2)} .myth .m h2{color:rgba(17,17,17,.42)}
+.cmp .a h3{color:rgba(17,17,17,.45)}
+.myth .t h2 .r{color:#111}
+.stack .row.bn,.kill div.on{border-color:#f0952b}
+.kill div.big{background:#ffe94a;color:#111;font:inherit;letter-spacing:normal} .kill div.big i{color:#111}
+.meter .track{background:linear-gradient(90deg,#e9e3d2,#f0952b)}
+.thermo .tube{background:#ebe5d4} .thermo .fill{background:#f0952b}
+.node .dot{background:#ffe94a;border-color:#111;color:#111}
+.node:not(:last-child)::after{background:#111}
+.redbg .node .dot{background:#ffe94a} .redbg .node span{color:rgba(255,255,255,.7)}
+.tri line{stroke:#111} .tri circle{fill:#ffe94a;stroke:#111} .tri text{fill:#111} .tri .ctr{fill:#d9730d}
+.redbg .btn{background:#ffe94a!important;color:#111!important}
+.framed .pic img,.cluster img,.shots img,.pol,.cover,.card,.stack .row,.kill div,.pp div,.chat{box-shadow:none}
+.tilt,.pol,.cover,.cluster img:nth-child(odd),.cluster img:nth-child(2){transform:none}
+.framed .pic img,.shots img,.cover{border-radius:.6cqw}
+.big{color:#111}
+.big .num{background:#ffe94a;padding:0 .08em}
+.a1,.a2,.a3,.a4,.a5{animation:none;opacity:1;transform:none}
+.reveal{transition:none}
+.zoom img.bg{animation:none}
+.kill div,.quiz div{transition:none}
+.money{display:flex;gap:1.6cqw;margin-top:6cqh;align-items:center;font:800 3cqw Montserrat,SFD}
+.money span{background:var(--ink2);border:1px solid var(--line);border-radius:1cqw;padding:2.6cqh 2cqw}
+.money span.on{background:#ffe94a;border-color:#111}
+.money em{font-style:normal;color:var(--mute);font-size:2.4cqw}
+</style>
+</head>
+<body>
+<div id="stage" aria-live="polite"></div>
+<div id="bar"></div>
+<div id="counter"></div>
+<div id="hint">Click, or press → to advance</div>
+
+<script>
+const DECK = (function(){
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) document.documentElement.classList.add('reduced');
+  const stage = document.getElementById('stage');
+  const bar = document.getElementById('bar');
+  const counter = document.getElementById('counter');
+  let current = 0, SLIDES = [];
+  function show(i){
+    if (!SLIDES.length) return;
+    current = Math.max(0, Math.min(SLIDES.length - 1, i));
+    const s = SLIDES[current];
+    const el = document.createElement('section');
+    el.className = 'slide';
+    el.innerHTML = (typeof s === 'string') ? s : (s.html || '');
+    stage.replaceChildren(el);
+    if (s && typeof s.onMount === 'function') s.onMount(el, { reduced });
+    bar.style.width = (current / Math.max(1, SLIDES.length - 1) * 100) + '%';
+    counter.textContent = (current + 1) + ' / ' + SLIDES.length;
+    if (current > 0) document.getElementById('hint').style.opacity = 0;
+  }
+  const next = () => show(current + 1);
+  const prev = () => show(current - 1);
+  addEventListener('keydown', e => {
+    if (['ArrowRight',' ','Spacebar','PageDown'].includes(e.key)){ e.preventDefault(); next(); }
+    else if (['ArrowLeft','PageUp'].includes(e.key)){ e.preventDefault(); prev(); }
+    else if (e.key === 'Home'){ show(0); }
+    else if (e.key === 'End'){ show(SLIDES.length - 1); }
+  });
+  addEventListener('click', e => { (e.clientX < innerWidth * 0.33 ? prev : next)(); });
+  function load(slides){ SLIDES = slides || []; show((+new URLSearchParams(location.search).get('s')||1)-1); }
+  return { load, show, next, prev, reduced };
+})();
+
+/* ---------- slide builders (design + copy live here) ---------- */
+const I = n => `../assets/img/deck/${n}?v=4`;
+const P = {
+  grad:'n-grad.jpg', grad2:'n-grad2.jpg', green:'n-green.jpg', green2:'n-green2.jpg', jacket:'n-jacket.jpg',
+  orange:'n-orange.jpg', red:'n-red.jpg', shades:'n-shades.jpg'
+};
+const B = `<div class="brand">Nia Knows Finance</div>`;
+const eye = t => t ? `<div class="eye a1">${t}</div>` : '';
+const sub = t => t ? `<p class="sub a3">${t}</p>` : '';
+
+const full = (img, h, s, o={}) => `<div class="full zoom ${o.rt?'rt':''}" style="position:absolute;inset:0">
+  <img class="bg" src="${I(P[img]||img)}" alt="" style="object-position:${o.pos||'50% 15%'}">
+  <div class="tx">${eye(o.eye)}<h2 class="${o.size||'h2'} a2">${h}</h2>${sub(s)}</div></div>`;
+const split = (img, h, s, o={}) => `<div class="split ${o.rev?'rev':''}">
+  <div class="ph"><img src="${I(P[img]||img)}" alt="" style="object-position:${o.pos||'50% 15%'}"></div>
+  <div class="tx">${eye(o.eye)}<h2 class="${o.size||'h2'} a2">${h}</h2>${sub(s)}</div></div>`;
+const text = (h, s, o={}) => `<div class="c ${o.bg||''}">${B}${eye(o.eye)}<h1 class="${o.size||'h1'} a2">${h}</h1>${sub(s)}</div>`;
+const divider = (n, h, s) => `<div class="c redbg"><div class="eye a1">${n}</div><h1 class="h1 a2" style="font-size:8cqw">${h}</h1>${sub(s)}</div>`;
+const framed = (img, h, s, o={}) => `<div class="framed ${o.bg||''}" ${o.bg?'style="position:absolute;inset:0"':''}>
+  <div class="tx" style="text-align:left">${eye(o.eye)}<h2 class="h2 a2">${h}</h2>${sub(s)}</div>
+  <div class="pic a3"><img class="${o.tilt?'tilt':''}" src="${I(img)}" alt=""></div></div>`;
+const polaroid = (img, h, s, o={}) => `<div class="framed"><div class="tx" style="text-align:left">${eye(o.eye)}<h2 class="h2 a2">${h}</h2>${sub(s)}</div>
+  <div class="pic a3"><div class="pol"><img src="${I(P[img]||img)}" alt=""></div></div></div>`;
+const cluster = (imgs, h, s, o={}) => `<div class="c">${eye(o.eye)}<h2 class="h3 a2">${h}</h2>
+  <div class="cluster a3">${imgs.map(i=>`<img src="${I(P[i]||i)}" alt="">`).join('')}</div>${s?`<p class="sub a4" style="margin-top:3cqh">${s}</p>`:''}</div>`;
+const nodes = (h, items, o={}) => `<div class="c ${o.bg||''}">${eye(o.eye)}<h2 class="h2 a2">${h}</h2>
+  <div class="nodes a3">${items.map((it,i)=>`<div class="node"><div class="dot">${it[2]||i+1}</div><b>${it[0]}</b>${it[1]?`<span>${it[1]}</span>`:''}</div>`).join('')}</div></div>`;
+const cards = (h, items, cols, o={}) => `<div class="c ${o.bg||''}">${eye(o.eye)}<h2 class="h2 a2">${h}</h2>
+  <div class="grid g${cols} a3">${items.map((it,i)=>`<div class="card"><div class="n">${String(i+1).padStart(2,'0')}</div><b>${it[0]}</b>${it[1]?`<span>${it[1]}</span>`:''}</div>`).join('')}</div></div>`;
+const myth = (m, t) => `<div class="myth"><div class="m"><div class="lab">Myth</div><h2 class="h2 a1">${m}</h2></div>
+  <div class="t"><div class="lab">Truth</div><h2 class="h2 a3">${t}</h2></div></div>`;
+const compare = (h, a, al, b, bl, o={}) => `<div class="c">${eye(o.eye)}<h2 class="h2 a1">${h}</h2><div class="cmp">
+  <div class="col a a2"><h3 class="h3">${a}</h3><ul>${al.map(x=>`<li>${x}</li>`).join('')}</ul></div>
+  <div class="col b a4"><h3 class="h3">${b}</h3><ul>${bl.map(x=>`<li>${x}</li>`).join('')}</ul></div></div></div>`;
+const quote = (img, q, who, o={}) => `<div class="q ${o.bg||''}" style="${o.bg?'':'background:var(--ink)'}">
+  <div class="ph"><img src="${I(P[img]||img)}" alt=""></div>
+  <div class="tx"><div class="stars a1">★★★★★</div><blockquote class="a2">${q}</blockquote><cite class="a3">${who}</cite></div></div>`;
+const says = (img, q) => `<div class="q" style="background:var(--ink)"><div class="ph"><img src="${I(P[img]||img)}" alt=""></div>
+  <div class="tx"><blockquote class="a2">&ldquo;${q}&rdquo;</blockquote><cite class="a3">Nia</cite></div></div>`;
+const yes = (h, word='YES', o={}) => `<div class="c ${o.bg||'redbg'}">${eye(o.eye||'Type in the chat')}<h2 class="h2 a2" style="max-width:22ch">${h}</h2>
+  <div class="chat a4"><i>N</i><b>${word}</b><span class="caret"></span></div></div>`;
+const faq = q => `<div class="c faq creambg" style="position:absolute;inset:0">${B}<div class="tag a1">Questions I get asked</div><div class="q2 a2">${q}</div></div>`;
+
+
+/* demos */
+const meter = (h, s, at, label) => ({ html:`<div class="c">${eye('Where most families end up')}<h2 class="h2 a1">${h}</h2>
+  <div class="meter a2"><div class="tag" style="left:0">${label}</div><div class="needle" style="left:0"></div><div class="track"></div>
+  <div class="lbls"><span>Apply to a few, then give up</span><span>College paid for</span></div></div>${sub(s)}</div>`,
+  onMount(el,{reduced}){ const n=el.querySelector('.needle'),t=el.querySelector('.tag');
+    const go=()=>{n.style.left=at+'%';t.style.left=at+'%'}; reduced?go():setTimeout(go,350);} });
+const killers = (focus) => ({ html:`<div class="c">${eye('The 7 mistakes that cost families scholarships')}<h2 class="h2 a1">${focus?'The biggest one is only chasing the big national ones.':'Most families make at least three of these.'}</h2>
+  <div class="kill">${['Applying to fewer than 10','One essay for every scholarship','Waiting on the school counselor','Ignoring part of the prompt','Turning things in last minute','Stopping after the first no','Only chasing the big national ones',null]
+   .map((k,i)=>k?`<div data-i="${i}"><i>${String(i+1).padStart(2,'0')}</i><b>${k}</b></div>`:'<div style="visibility:hidden"></div>').join('')}</div></div>`,
+  onMount(el,{reduced}){ const ds=[...el.querySelectorAll('.kill div[data-i]')];
+    if(focus){ds.forEach(d=>{d.classList.add('on'); if(d.dataset.i==='6') d.classList.add('big'); else d.style.opacity=.25}); return;}
+    ds.forEach((d,i)=>reduced?d.classList.add('on'):setTimeout(()=>d.classList.add('on'),400+i*260)); } });
+const triangle = (h, s, labels) => ({ html:`<div class="c">${eye(s)}<h2 class="h2 a1">${h}</h2>
+  <svg class="tri" viewBox="-60 -24 420 310"><line x1="150" y1="40" x2="40" y2="220"/><line x1="40" y1="220" x2="260" y2="220"/><line x1="260" y1="220" x2="150" y2="40"/>
+  <circle cx="150" cy="40" r="30"/><circle cx="40" cy="220" r="30"/><circle cx="260" cy="220" r="30"/>
+  <text x="150" y="46">1</text><text x="40" y="226">2</text><text x="260" y="226">3</text>
+  <text x="150" y="-4" style="font-size:14px">${labels[0]}</text><text x="40" y="276" style="font-size:14px">${labels[1]}</text><text x="260" y="276" style="font-size:14px">${labels[2]}</text>
+  <text class="ctr" x="150" y="168">Debt-free</text></svg></div>`,
+  onMount(el,{reduced}){ const t=el.querySelector('.tri'); reduced?t.classList.add('go'):setTimeout(()=>t.classList.add('go'),300);} });
+const thermo = { html:`<div class="c">${eye('Step 3 · Go small and local')}<h2 class="h2 a1">How the odds change when you go local.</h2>
+  <div class="thermo a2"><div class="tube"><div class="fill"></div></div>
+  <div class="steps"><span>National</span><span>State</span><span>City</span><span>Your church or bank</span><span>Your odds</span></div></div>
+  <p class="sub a3">Fewer people apply. The check spends the same.</p></div>`,
+  onMount(el,{reduced}){ const f=el.querySelector('.fill'),ss=[...el.querySelectorAll('.steps span')];
+    if(reduced){f.style.width='100%';ss.forEach(s=>s.classList.add('on'));return;}
+    setTimeout(()=>f.style.width='100%',300); ss.forEach((s,i)=>setTimeout(()=>s.classList.add('on'),400+i*700)); } };
+const math = { html:`<div class="c">${eye('Step 1 · Hit your target number')}<h2 class="h2 a1">Your cost of attendance times 10.</h2>
+  <div class="money a2"><span>$30,000 a year</span><em>×</em><span>10</span><em>=</em><span class="on">$300,000 to apply for</span></div>
+  <p class="sub a3">At 1 in 10, that covers the year.</p></div>` };
+const moneyFact = { html:`<div class="c">${B}<div class="big a1">$100M+</div><h2 class="h3 a2" style="margin-top:3cqh">in scholarships goes unclaimed every year.</h2><p class="sub a3">The money is there. Most people just don\'t apply.</p></div>` };
+const loanCost = { html:`<div class="c">${eye('What doing nothing costs')}<h2 class="h2 a1">Parent PLUS loans now stop at $20,000 a year.</h2>
+  <div class="money a2"><span>$20,000 a year</span><em>·</em><span>$65,000 max</span><em>+</em><span class="on">interest for years</span></div>
+  <p class="sub a3">And whatever college costs above that, your family still has to find.</p></div>` };
+const counter = (end, h, s, suffix='') => ({ html:`<div class="c">${B}<div class="big a1"><span class="num">0</span>${suffix}</div><h2 class="h3 a2" style="margin-top:3cqh">${h}</h2>${sub(s)}</div>`,
+  onMount(el,{reduced}){ const n=el.querySelector('.num'); if(reduced){n.textContent=end;return;}
+    const t0=performance.now(),d=1300;(function tick(now){const p=Math.min(1,(now-t0)/d),e=1-Math.pow(1-p,3);n.textContent=Math.round(end*e);if(p<1)requestAnimationFrame(tick)})(t0);} });
+const quiz = { html:`<div class="c">${B}${eye('Quick quiz before we start')}<h2 class="h2 a1" style="max-width:20ch">True or false: you need a perfect GPA to win scholarships.</h2>
+  <div class="quiz a2"><div class="t">True</div><div class="f">False</div></div>
+  <p class="sub reveal">False. Most scholarships care about your story and whether you applied. I\'ll show you how.</p></div>`,
+  onMount(el,{reduced}){ const go=()=>{el.querySelector('.f').classList.add('on');el.querySelector('.t').classList.add('off');el.querySelector('.reveal').classList.add('in')}; reduced?go():setTimeout(go,1600);} };
+const shots = (e, h, imgs) => ({ html:`<div class="c">${eye(e)}<h2 class="h3 a1">${h}</h2><div class="shots a2">${imgs.map(i=>`<img src="${I('../proof/'+i)}" alt="">`).join('')}</div></div>` });
+
+const PILLARS = [['Hit your target number','Cost of attendance times 10'],['Tell your story','Open with a moment only you lived'],['Go small and local','Less competition, same money, better odds']];
+
+DECK.load([
+/* ===== 1 HOOK ===== */
+full('grad2', 'The <span class="r">Simple</span> 3-Step Strategy to Win Scholarships and Graduate Debt-Free', 'No matter your income. Even if you\'ve already been rejected.', {eye:'Free live class · Nia Knows Finance', size:'h3', pos:'50% 20%'}),
+quiz,
+full('green', 'Grab a notebook. You\'re going to want it.', 'Parents, students, everybody. Tonight is for you.', {rt:true, pos:'50% 30%'}),
+split('orange', 'Hey, I\'m Nia.', 'Your college cash coach. I won $1,000,000 in scholarships and went to college without paying a dime.', {eye:'Your host tonight', pos:'50% 30%'}),
+yes('Where are you watching from tonight?', 'Dallas, TX', {bg:'creambg'}),
+yes('Who\'s here tonight? Parent or student?', 'Parent'),
+text('Tonight is for families who are <span class="r">done</span> guessing how to pay for college.', 'And ready for a plan that actually works.'),
+
+/* ===== 2 PAIN ===== */
+cards('Stop me if any of these sound familiar.', [['The bill is coming','And nobody has $200,000 sitting around'],['You applied and lost','Rejection after rejection'],['The counselor is swamped','Hundreds of students, one person'],['Loans feel like the only way','And they follow you for years']], 4),
+full('red', 'You open the award letter.', 'And the gap between what they give and what it costs is huge.', {pos:'50% 30%'}),
+full('jacket', 'Everyone says "just apply for scholarships."', 'Nobody tells you which ones, how many, or what to write.', {rt:true, pos:'50% 30%'}),
+meter('Most families get stuck on the left.', 'They apply to a handful, lose, and decide scholarships aren\'t for them.', 18, 'You are here'),
+split('green2', 'You don\'t need a perfect GPA.', 'You need a strategy, and enough applications to let it work.', {rev:true, size:'h3', pos:'50% 30%'}),
+yes('Type YES if one of these sounds like you.'),
+
+/* ===== 3 TEASE ===== */
+nodes('Tonight I\'ll walk you through the 3 steps.', PILLARS, {eye:'What you\'ll learn'}),
+killers(false),
+framed('gift-checklist.jpg', 'You got a free gift when you signed up.', 'My Scholarship Checklist. It\'s waiting in the WhatsApp group.', {eye:'Free gift'}),
+
+/* ===== 4 EXCITE ===== */
+full('grad', 'Imagine opening the tuition bill and it says $0.', '', {rt:true, pos:'50% 30%'}),
+full('shades', 'Imagine graduating with money in the bank instead of a loan.', '', {rt:true, size:'h3', pos:'50% 20%'}),
+says('orange', 'Same money. Better odds. That\'s the whole game.'),
+
+/* ===== 5 SOCIAL PROOF ===== */
+full('green2', 'So why listen to me?', '', {eye:'My story', pos:'50% 30%'}),
+split('red', 'My family didn\'t have $200,000 for college.', 'So it was scholarships or loans. I picked scholarships.', {pos:'50% 30%'}),
+split('jacket', 'I lost my first 20 applications.', 'Including a $20,000 one from Coca-Cola. I still don\'t drink Coca-Cola.', {rev:true, pos:'50% 30%'}),
+counter(100, 'scholarship applications I sent.', 'I treated it like a part-time job.', '+'),
+text('$1,000,000 in scholarships.', 'Four years of college without paying a dime. I even got money back.', {eye:'What the system did'}),
+text('Six figures by 21.', 'Fortune 500 internships, $30K earned from them, and a house the year I graduated.', {eye:'What came after', size:'h2'}),
+framed('../her-profile.jpg', 'You might know me from here.', 'Helping Gen Z fund college and win in corporate.', {eye:'@niaknowsfinance'}),
+says('grad', 'I\'m not smarter than your kid. I just had a system.'),
+
+/* ===== 6 PARADIGM ===== */
+divider('Before we start', 'The <span style="color:#ffe94a">biggest</span> mistake families make'),
+compare('There are two ways to chase scholarships.', 'Lottery', ['Apply to a few big national ones','Copy and paste the same essay','Wait for the counselor to find them'], 'Strategy', ['Know your target number','Lead with your own story','Go where the competition is low']),
+killers(true),
+split('green', 'When you only chase the big national ones, you\'re competing with the whole country.', 'And the odds are terrible.', {pos:'50% 30%'}),
+full('orange', 'And here\'s the truth: it\'s not your fault.', 'Nobody teaches this. Most schools don\'t have time to.', {rt:true, pos:'50% 30%'}),
+myth('You need a perfect GPA to win scholarships.', 'You need more applications and a better story.'),
+moneyFact,
+triangle('Winning isn\'t luck.', 'It\'s three steps done in order', ['Target number','Your story','Small + local']),
+
+/* ===== 7 TRAINING · STEP 1 ===== */
+divider('Step 1 of 3', 'Hit your target number', 'So you know exactly how much to go after.'),
+myth('Apply to a few and hope.', 'Apply until you hit your number.'),
+math,
+nodes('How to find your target number.', [['Find your cost of attendance','Tuition, housing, books, everything'],['Multiply it by 10','That\'s how much to apply for'],['Track every application','Deadline, amount, status']], {eye:'Step 1 · Hit your target number'}),
+compare('Two students. Same school.', 'No number', ['Applies to 6 scholarships','Stops after 3 rejections','Takes out the loan'], 'Target number', ['Applies to 100+','Expects to lose some','Wins enough to cover it']),
+split('red', 'Expect to lose most of them.', 'About 1 in 10 is a great hit rate. That\'s why the number matters.', {rev:true, eye:'Step 1 · Hit your target number', size:'h3', pos:'50% 30%'}),
+says('jacket', 'I applied to over 100. I lost my first 20. Then they started coming.'),
+yes('Type YES if you\'ve applied to fewer than 10 so far.'),
+
+/* ===== 7 TRAINING · STEP 2 ===== */
+divider('Step 2 of 3', 'Tell your story', 'Everybody\'s smart. Not everybody has your story.'),
+myth('List every award and activity.', 'Open with one moment only you lived.'),
+full('green2', 'The committee reads hundreds of essays.', 'Yours has to make them want the next line.', {rt:true, pos:'50% 30%'}),
+compare('Student A vs Student B.', 'Student A', ['"I am a hard-working student"','A list of clubs and grades','Sounds like everyone else'], 'Student B', ['Opens with a real moment','Shows why the money matters','Sounds like one person']),
+nodes('How to tell your story.', [['Start with a moment','A scene, not a résumé'],['Answer every part of the prompt','Every single question'],['Respect the word count','Not one word over']], {eye:'Step 2 · Tell your story'}),
+split('orange', 'Follow the directions like it\'s the test.', 'I lost a $20,000 scholarship over a headshot I sent late.', {eye:'Step 2 · Tell your story', size:'h3', pos:'50% 30%'}),
+text('Set every deadline 3 days early.', 'Late is the easiest way to lose money you already earned.', {eye:'Step 2 · Tell your story', size:'h2'}),
+yes('Type YES if you\'ve ever opened an essay with "I am a hard-working student."'),
+
+/* ===== 7 TRAINING · STEP 3 ===== */
+divider('Step 3 of 3', 'Go small and local', 'Less competition, same money, better odds.'),
+myth('The big national ones are the best.', 'The local ones are the easiest to win.'),
+full('red', 'Local scholarships equal less competition.', 'Same money, but better odds.', {rt:true, pos:'50% 30%'}),
+thermo,
+cards('Where to look tonight.', [['Sororities and fraternities','Alumni chapters near you'],['Banks and credit unions','Ask the branch you already use'],['Churches','Your own and the ones nearby'],['Local foundations','Council on Foundations, GuideStar']], 4, {eye:'Step 3 · Go small and local'}),
+split('jacket', 'Find them yourself.', 'Your counselor has hundreds of students. Scholarships.com, local listings and even social media all work. Never pay to apply.', {rev:true, eye:'Step 3 · Go small and local', size:'h3', pos:'50% 30%'}),
+says('green', 'Over $100 million in scholarships goes unclaimed every year. Go get your share.'),
+yes('Type YES if you\'re making your local list this week.'),
+
+/* ===== 8 COMMITMENT ===== */
+triangle('Target number. Your story. Small and local.', 'Here\'s the whole thing on one slide', ['Target number','Your story','Small + local']),
+yes('Can you see why applying to five never worked?', 'YES', {bg:'creambg'}),
+yes('Can you picture opening a $0 tuition bill?', 'YES', {bg:'creambg'}),
+full('shades', 'Think about the last scholarship you lost.', 'Which of the three steps was missing?', {pos:'50% 20%'}),
+
+/* ===== 9 TRANSITION ===== */
+split('green2', 'Now you know what to do.', 'The hard part is doing 100 applications with nobody checking your work.', {pos:'50% 30%'}),
+nodes('From here you\'ve got three paths.', [['Do nothing','Take the loan and pay it for years'],['Figure it out alone','More searching, more guessing'],['Let me help you','A plan built for your family, with me in your corner']]),
+loanCost,
+yes('Can I show you how we could work on this together?'),
+
+/* ===== 10 OFFER ===== */
+divider('Introducing', 'College Cash Coaching with Nia', 'Coaching for families who want to graduate debt-free.'),
+nodes('Three steps. Done with me.', [['Target number','We set your number and your list','1'],['Your story','We build an essay that wins','2'],['Small and local','We find the money near you','3']], {eye:'How it works'}),
+cards('Step 1 · Target number', [['Your cost of attendance','Broken down, line by line'],['Your number','What to go after, and by when'],['Your tracker','Every deadline in one place']], 3, {eye:'College Cash Coaching'}),
+cards('Step 2 · Your story', [['Your opening moment','Found together on a call'],['Essay feedback','Before you hit submit'],['Prompt checks','Every question answered']], 3, {eye:'College Cash Coaching'}),
+cards('Step 3 · Small and local', [['Your local list','Built around your city'],['Where to look each month','New deadlines, new money'],['Scam check','So you never pay to apply']], 3, {eye:'College Cash Coaching'}),
+text('No perfect GPA. No $200,000. No loans you don\'t need.', 'Just a plan, and me in your corner.', {bg:'redbg', size:'h2'}),
+
+/* ===== 11 PRICE (no number) ===== */
+split('orange', 'There\'s no price on a slide.', 'Every plan is built around your family. We talk about fit first.', {eye:'Investment', rev:true, pos:'50% 30%'}),
+
+/* ===== 12 BONUSES ===== */
+framed('gift-checklist.jpg', 'Bonus: The Scholarship Checklist.', 'Everything to do the morning after this class.', {eye:'Bonus #1'}),
+split('red', 'Bonus: The Scholarship Cheat Code Tracker.', 'Every application, amount and deadline in one place.', {eye:'Bonus #2', pos:'50% 30%'}),
+split('jacket', 'Bonus: The College to Corporate Playbook.', 'How I landed Fortune 500 internships while in school.', {eye:'Bonus #3', rev:true, pos:'50% 30%'}),
+{ html:`<div class="c">${eye('Everything you get')}<h2 class="h2 a1">College Cash Coaching with Nia</h2><div class="stack a2">
+  ${[['Target number + scholarship list','Step 1'],['Essay feedback before you submit','Step 2'],['Local money map for your city','Step 3']].map(r=>`<div class="row"><span>${r[0]}</span><em>${r[1]}</em></div>`).join('')}
+  ${[['The Scholarship Checklist','Bonus'],['The Scholarship Cheat Code Tracker','Bonus'],['The College to Corporate Playbook','Bonus']].map(r=>`<div class="row bn"><span>${r[0]}</span><em>${r[1]}</em></div>`).join('')}
+  </div></div>` },
+
+/* ===== 13 RISK REVERSAL ===== */
+full('grad', 'If it\'s not a fit, I\'ll tell you.', 'The call is free. No pressure, no obligation.', {rt:true, eye:'My promise', pos:'50% 30%'}),
+
+/* ===== 14 URGENCY + CTA ===== */
+text('Deadlines don\'t wait, and I only take a few families at a time.', 'The earlier you start, the more money is still on the table.', {eye:'Why now', size:'h2'}),
+{ html:`<div class="c redbg">${B}<div class="eye a1">Your next step</div><h1 class="h1 a2" style="max-width:18ch">Book your free college cash call</h1>
+  <p class="sub a3">We look at your cost, your number and your next 30 days.</p><div class="btn a4">See if you qualify</div></div>` },
+cards('What happens on the call.', [['We look at your numbers','Cost of attendance and the gap'],['We find the fastest money','Local and small first'],['You leave with a plan','Whether we work together or not']], 3),
+faq('Is this for parents or students?'),
+faq('What if my GPA isn\'t perfect?'),
+faq('What if we already got rejected?'),
+faq('Is it too late if college starts next fall?'),
+faq('Is there an application?'),
+full('grad2', 'You don\'t need more loans. You need a <span class="r">better plan.</span>', 'Click below and see if you qualify.', {rt:true, size:'h2', pos:'50% 20%'}),
+{ html:`<div class="c">${B}<div class="eye a1">Thanks for staying</div><h2 class="h2 a2">Don\'t forget your free gift.</h2>
+  <div class="a3" style="margin-top:5cqh;display:flex;gap:4cqw;align-items:center"><img class="cover" style="height:46cqh" src="${I('gift-checklist.jpg')}" alt=""><div style="text-align:left"><p class="sub" style="margin:0">Your Scholarship Checklist is waiting in the WhatsApp group.</p><div class="btn">See if you qualify</div></div></div></div>` }
+]);
+</script>
+</body>
+</html>
